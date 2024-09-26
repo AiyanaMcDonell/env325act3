@@ -71,3 +71,33 @@ santa.fe <- Floods %>%
   filter(siteID == 2322500)
 
 #creating a plot for each river
+plot(peace$dateF, peace$gheight.ft, type = "l",
+     xlab = "Date", ylab = "Height")
+
+plot(coochie$dateF, coochie$gheight.ft, type = "l",
+     xlab = "Date", ylab = "Height")
+
+plot(fisheating$dateF, fisheating$gheight.ft, type = "l",
+     xlab = "Date", ylab = "Height")
+
+plot(santa.fe$dateF, santa.fe$gheight.ft, type = "l",
+     xlab = "Date", ylab = "Height")
+
+#question 2: What was the earliest date of occurrence for each flood category in each river? 
+#How quickly did changes in flood category occur for each river? 
+#Do you think there was enough time for advanced warning before a flood category changed?
+
+flood_date <- Floods %>%
+  filter(gheight.ft >= flood.ft) %>%
+  group_by(names) %>%
+  summarise(min_date = min(dateF))
+
+#Water level changes occurred within a few hours. I do not think an advanced warning could have
+#been administered before peak flood levels.
+
+#question 3: Which river had the highest stream stage above its listed height in the major flood category?
+#Peace River
+
+#question 4: 
+
+
